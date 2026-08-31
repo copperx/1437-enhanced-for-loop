@@ -38,6 +38,7 @@ public class TwoDimArrayDemo2
             {
                 System.out.printf("%10s", seasons[i][j]);
             }
+            
             System.out.println();
         }
     }
