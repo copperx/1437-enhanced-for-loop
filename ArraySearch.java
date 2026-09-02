@@ -1,4 +1,6 @@
-public class TwoDimArrayDemo2
+import java.util.Scanner;
+
+public class ArraySearch
 {
     public static void main(String[] args)
     {
@@ -31,15 +33,23 @@ public class TwoDimArrayDemo2
             {"December", "Winter"}
         };
 
-        // Print the entire table to the screen
-        for(int i = 0; i < seasons.length; i++)
+        Scanner scnr = new Scanner(System.in);
+        System.out.println("Enter a month: ");
+        String month = scnr.nextLine();
+        
+        boolean found = false;
+        // Search for the given month in the first column of the 2D array
+        for(String[] row : seasons)   // For each row in the seasons matrix ...
         {
-            for(int j = 0; j < seasons[i].length; j++)
-            {
-                System.out.printf("%10s", seasons[i][j]);
+            // Compare the first column to the month that the user typed
+            if(row[0].equalsIgnoreCase(month)) {
+                // Match! Print the second column
+                System.out.println("The season for " + row[0] + " is " + row[1]);
+                found = true;
             }
-            
-            System.out.println();
+        }
+        if(!found) {
+            System.out.println(month + " is not a month!");
         }
     }
 }
